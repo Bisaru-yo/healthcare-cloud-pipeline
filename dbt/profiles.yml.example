@@ -1,0 +1,16 @@
+healthcare_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'pbsfajr-lw57115') }}"
+      user: HEALTHCARE_DBT_USER
+      role: HEALTHCARE_TRANSFORMER
+      database: HEALTHCARE
+      warehouse: HEALTHCARE_WH
+      schema: ANALYTICS
+      threads: 4
+      authenticator: SNOWFLAKE_JWT
+      private_key_path: "{{ env_var('SNOWFLAKE_PRIVATE_KEY_PATH') }}"
+      private_key_passphrase: "{{ env_var('DBT_ENV_SECRET_SNOWFLAKE_KEY_PASSPHRASE') }}"
+      query_tag: healthcare_portfolio_dbt

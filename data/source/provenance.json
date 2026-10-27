@@ -1,0 +1,20 @@
+{
+  "source_url": "https://raw.githubusercontent.com/synthetichealth/synthea-sample-data/main/downloads/synthea_sample_data_csv_apr2020.zip",
+  "archive_sha256": "4194b18c11eaedcf0d5d5dd448d8ac9661f14381e2ef9f109215dc42266cd38a",
+  "downloaded_at": "2026-10-26T22:36:03.967233+00:00",
+  "description": "Official Synthea April 2020 synthetic CSV sample; selected files only",
+  "files": {
+    "patients.csv": {
+      "sha256": "97b3d9b8a86b44e4278713c1993443c4fdf1e3836c41019de5556f5740611812",
+      "bytes": 332570
+    },
+    "encounters.csv": {
+      "sha256": "5c3a020d53f23be45a8de2e58f76afbace98a38572021e6cea8a70f8314f4422",
+      "bytes": 16474491
+    },
+    "payers.csv": {
+      "sha256": "a26e04cd7b143ec886c4934e22bcea7ecccdc4f3a094fa1c46d21a2fed1c5d0e",
+      "bytes": 2200
+    }
+  }
+}

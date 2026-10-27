@@ -1,0 +1,17 @@
+name: healthcare_pipeline
+version: '1.0.0'
+config-version: 2
+profile: healthcare_pipeline
+require-dbt-version: [">=1.12.0", "<1.13.0"]
+model-paths: ["models"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+clean-targets: ["target", "dbt_packages"]
+models:
+  healthcare_pipeline:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
+    reporting:
+      +materialized: view

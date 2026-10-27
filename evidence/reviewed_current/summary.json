@@ -1,0 +1,163 @@
+{
+  "scope": "Local SQLite source proof only; PostgreSQL/AWS/Snowflake/dbt/Airflow not executed",
+  "all_expected_behaviors_passed": true,
+  "scenarios": [
+    {
+      "scenario": "01_initial_load",
+      "status": "passed",
+      "source_counts": {
+        "patients": 1171,
+        "payers": 10,
+        "encounters": 53346
+      },
+      "load": {
+        "patients": {
+          "inserted": 1171,
+          "updated": 0,
+          "unchanged": 0,
+          "source_rows": 1171,
+          "reconciled_rows": 1171,
+          "target_total_rows": 1171
+        },
+        "payers": {
+          "inserted": 10,
+          "updated": 0,
+          "unchanged": 0,
+          "source_rows": 10,
+          "reconciled_rows": 10,
+          "target_total_rows": 10
+        },
+        "encounters": {
+          "inserted": 53346,
+          "updated": 0,
+          "unchanged": 0,
+          "source_rows": 53346,
+          "reconciled_rows": 53346,
+          "target_total_rows": 53346
+        }
+      },
+      "violations": {}
+    },
+    {
+      "scenario": "02_identical_rerun",
+      "status": "passed",
+      "source_counts": {
+        "patients": 1171,
+        "payers": 10,
+        "encounters": 53346
+      },
+      "load": {
+        "patients": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 1171,
+          "source_rows": 1171,
+          "reconciled_rows": 1171,
+          "target_total_rows": 1171
+        },
+        "payers": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 10,
+          "source_rows": 10,
+          "reconciled_rows": 10,
+          "target_total_rows": 10
+        },
+        "encounters": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 53346,
+          "source_rows": 53346,
+          "reconciled_rows": 53346,
+          "target_total_rows": 53346
+        }
+      },
+      "violations": {}
+    },
+    {
+      "scenario": "03_orphan_patient_rejected",
+      "status": "failed",
+      "source_counts": {
+        "patients": 1171,
+        "payers": 10,
+        "encounters": 53346
+      },
+      "load": null,
+      "violations": {
+        "encounters.orphan_patient": 1
+      }
+    },
+    {
+      "scenario": "04_corrected_source_recovery",
+      "status": "passed",
+      "source_counts": {
+        "patients": 1171,
+        "payers": 10,
+        "encounters": 53346
+      },
+      "load": {
+        "patients": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 1171,
+          "source_rows": 1171,
+          "reconciled_rows": 1171,
+          "target_total_rows": 1171
+        },
+        "payers": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 10,
+          "source_rows": 10,
+          "reconciled_rows": 10,
+          "target_total_rows": 10
+        },
+        "encounters": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 53346,
+          "source_rows": 53346,
+          "reconciled_rows": 53346,
+          "target_total_rows": 53346
+        }
+      },
+      "violations": {}
+    },
+    {
+      "scenario": "05_late_cost_correction",
+      "status": "passed",
+      "source_counts": {
+        "patients": 1171,
+        "payers": 10,
+        "encounters": 53346
+      },
+      "load": {
+        "patients": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 1171,
+          "source_rows": 1171,
+          "reconciled_rows": 1171,
+          "target_total_rows": 1171
+        },
+        "payers": {
+          "inserted": 0,
+          "updated": 0,
+          "unchanged": 10,
+          "source_rows": 10,
+          "reconciled_rows": 10,
+          "target_total_rows": 10
+        },
+        "encounters": {
+          "inserted": 0,
+          "updated": 1,
+          "unchanged": 53345,
+          "source_rows": 53346,
+          "reconciled_rows": 53346,
+          "target_total_rows": 53346
+        }
+      },
+      "violations": {}
+    }
+  ]
+}

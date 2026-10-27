@@ -1,0 +1,12 @@
+{
+  "evidence_origin": "User-pasted Windows terminal output; original local summary file was not uploaded",
+  "status": "passed",
+  "command": "docs-generate",
+  "dbt_core": "1.12.6",
+  "dbt_snowflake": "1.12.4",
+  "discovered": {"models": 9, "data_tests": 37, "sources": 3},
+  "catalog_build": "Catalog written to dbt/target/catalog.json",
+  "user_summary_relative_path": "evidence/dbt_20261027T040846_a78133f2/summary.json",
+  "generated_catalog_in_this_release": false,
+  "notes": "Documentation generation succeeded after the verified Airflow run. This command does not establish a second dbt build/test run or a hosted docs site."
+}

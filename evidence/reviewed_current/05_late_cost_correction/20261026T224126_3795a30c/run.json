@@ -1,0 +1,58 @@
+{
+  "run_id": "20261026T224126_3795a30c",
+  "engine": "sqlite",
+  "stage": "source_validation_and_upsert",
+  "started_at": "2026-10-26T22:41:26.581185+00:00",
+  "status": "passed",
+  "quality": {
+    "status": "passed",
+    "source_counts": {
+      "patients": 1171,
+      "payers": 10,
+      "encounters": 53346
+    },
+    "source_sha256": {
+      "patients.csv": "97b3d9b8a86b44e4278713c1993443c4fdf1e3836c41019de5556f5740611812",
+      "payers.csv": "a26e04cd7b143ec886c4934e22bcea7ecccdc4f3a094fa1c46d21a2fed1c5d0e",
+      "encounters.csv": "cebaacb954947dcb42ad3e553b5452014fadfffad0fbe7e05ffa2370636a49cb"
+    },
+    "schema_adaptations": [
+      {
+        "table": "payers",
+        "column": "ownership",
+        "action": "default_blank_legacy_header"
+      }
+    ],
+    "violation_count": 0,
+    "violations_by_rule": {},
+    "first_100_violations": []
+  },
+  "load": {
+    "patients": {
+      "inserted": 0,
+      "updated": 0,
+      "unchanged": 1171,
+      "source_rows": 1171,
+      "reconciled_rows": 1171,
+      "target_total_rows": 1171
+    },
+    "payers": {
+      "inserted": 0,
+      "updated": 0,
+      "unchanged": 10,
+      "source_rows": 10,
+      "reconciled_rows": 10,
+      "target_total_rows": 10
+    },
+    "encounters": {
+      "inserted": 0,
+      "updated": 1,
+      "unchanged": 53345,
+      "source_rows": 53346,
+      "reconciled_rows": 53346,
+      "target_total_rows": 53346
+    }
+  },
+  "monthly_report_groups": 15827,
+  "finished_at": "2026-10-26T22:41:28.234311+00:00"
+}

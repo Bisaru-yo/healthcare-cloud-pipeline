@@ -1,0 +1,4 @@
+# Optional offline validation only; not required for Snowflake dbt execution.
+-r requirements-dbt.txt
+duckdb==2.0.0
+sqlglot==30.25.0

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "engine": "DuckDB after SQLGlot transpilation from Snowflake SQL",
+  "cloud_execution": false,
+  "models_exercised": 9,
+  "data_checks_exercised": 37,
+  "fact_rows": 53346,
+  "total_claim_cost_cents": 686831295,
+  "payer_coverage_cents": 330739157,
+  "monthly_report_groups": 15827,
+  "injected_defects_detected": {
+    "dropped_encounter": {
+      "raw_to_fact_content": 1,
+      "raw_to_fact_totals": 1
+    },
+    "duplicate_encounter": {
+      "analytics.fct_encounter.encounter_id.unique": 1,
+      "raw_to_fact_totals": 1
+    },
+    "orphan_payer": {
+      "analytics.fct_encounter.payer_id.relationships": 1,
+      "raw_to_fact_content": 2,
+      "reporting_totals": 2
+    }
+  },
+  "post_rollback_checks": "all passed",
+  "completed_at": "2026-10-27T01:35:27.296195+00:00"
+}

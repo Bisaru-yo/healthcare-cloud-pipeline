@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "airflow_version": "3.3.2",
+  "cloud_execution": false,
+  "docker_execution": false,
+  "task_implementation": "Stand-in executable; no PostgreSQL, AWS or Snowflake operations in DAG execution tests.",
+  "success_test": {
+    "reported_dag_state": "success",
+    "successful_task_order": [
+      "validate_source",
+      "export_snapshot",
+      "publish_s3",
+      "load_snowflake",
+      "dbt_build",
+      "verify_reports",
+      "finalize"
+    ],
+    "evidence": "dag_test_success.log",
+    "task_success_events": 7
+  },
+  "failure_test": {
+    "reported_dag_state": "failed",
+    "executed_tasks": [
+      "validate_source"
+    ],
+    "task_states": {
+      "dbt_build": "upstream_failed",
+      "export_snapshot": "upstream_failed",
+      "finalize": "upstream_failed",
+      "load_snowflake": "upstream_failed",
+      "publish_s3": "upstream_failed",
+      "validate_source": "failed",
+      "verify_reports": "upstream_failed"
+    },
+    "evidence": "dag_test_failure.log"
+  },
+  "python_tests": {
+    "run": 43,
+    "status": "OK"
+  },
+  "additional_checks": [
+    "Actual Snowflake connector split rendered SQL into 12 statements with the atomic block intact",
+    "Private Docker settings reuse metadata/UI credentials and URL-encode the source password",
+    "Compose YAML parsed and preserved source service/volume"
+  ],
+  "pending": "User Docker image build, container preflight, and full real-services DAG execution"
+}

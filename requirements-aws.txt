@@ -1,0 +1,2 @@
+# Optional; install when connecting the verified batch exporter to AWS S3.
+boto3[crt]>=1.42,<2

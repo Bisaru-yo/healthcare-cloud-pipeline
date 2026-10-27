@@ -1,0 +1,208 @@
+{
+  "evidence_origin": "Transcribed from Bishal's provided terminal and Snowflake SQL results; original local receipt files have not been copied into this workspace.",
+  "windows_automated_tests": {
+    "tests_run": 27,
+    "status": "OK"
+  },
+  "postgres_export": {
+    "status": "passed",
+    "engine": "postgres",
+    "batch_directory": "data\\batches\\20261026T235514_a3bfed17dc09",
+    "row_counts": {
+      "patients": 1171,
+      "payers": 10,
+      "encounters": 53346
+    },
+    "content_sha256": "a75ef822da0e3b6f62708a493f2144b428808ef723bbe51835c9b5a5b617ad9c"
+  },
+  "s3_context": {
+    "bucket": "bishal-healthcare-pipeline-bisar01",
+    "region": "us-east-2",
+    "upload_profile": "healthcare-cloud",
+    "identity_type": "temporary account-root browser-login session"
+  },
+  "initial_publish": {
+    "status": "passed",
+    "manifest_uri": "s3://bishal-healthcare-pipeline-bisar01/healthcare/20261026T235514_a3bfed17dc09/manifest.json",
+    "uploaded": 4,
+    "reused": 0
+  },
+  "identical_publish_retry": {
+    "status": "passed",
+    "manifest_uri": "s3://bishal-healthcare-pipeline-bisar01/healthcare/20261026T235514_a3bfed17dc09/manifest.json",
+    "uploaded": 0,
+    "reused": 4
+  },
+  "snowflake_account_probe": {
+    "account_identifier": "UJ02641",
+    "region": "AWS_US_EAST_2",
+    "active_role": "ACCOUNTADMIN"
+  },
+  "pending": [
+    "Docker image build and Airflow container preflight",
+    "Full real-services Airflow DAG execution and returned final result",
+    "dbt docs generation",
+    "Public repository and portfolio handoff"
+  ],
+  "snowflake_storage_integration": {
+    "name": "HEALTHCARE_S3_INT",
+    "evidence": "User-provided DESC INTEGRATION output",
+    "storage_aws_iam_user_arn": "arn:aws:iam::953995604695:user/p4he2000-s",
+    "storage_aws_role_arn": "arn:aws:iam::009285528415:role/healthcare-snowflake-reader",
+    "storage_aws_external_id": "UJ02641_SFCRole=3_QI/jMRmzPmDlNs3EYzEGBy98hWY="
+  },
+  "snowflake_stage_manifest": {
+    "evidence": "User-provided Snowflake staged manifest SELECT result",
+    "batch_id": "20261026T235514_a3bfed17dc09",
+    "status": "complete",
+    "content_sha256": "a75ef822da0e3b6f62708a493f2144b428808ef723bbe51835c9b5a5b617ad9c",
+    "patient_rows": 1171,
+    "payer_rows": 10,
+    "encounter_rows": 53346
+  },
+  "snowflake_initial_load": {
+    "run_id": "d03f650e-b196-4fa3-96f2-becc5759f96c",
+    "status": "passed",
+    "load": {
+      "encounters": {
+        "inserted": 53346,
+        "updated": 0,
+        "unchanged": 0,
+        "source_rows": 53346,
+        "reconciled_rows": 53346
+      },
+      "patients": {
+        "inserted": 1171,
+        "updated": 0,
+        "unchanged": 0,
+        "source_rows": 1171,
+        "reconciled_rows": 1171
+      },
+      "payers": {
+        "inserted": 10,
+        "updated": 0,
+        "unchanged": 0,
+        "source_rows": 10,
+        "reconciled_rows": 10
+      }
+    }
+  },
+  "snowflake_identical_rerun": {
+    "run_id": "9a852332-9d96-404f-be8b-a78851b1736d",
+    "status": "passed",
+    "load": {
+      "encounters": {
+        "inserted": 0,
+        "updated": 0,
+        "unchanged": 53346,
+        "source_rows": 53346,
+        "reconciled_rows": 53346
+      },
+      "patients": {
+        "inserted": 0,
+        "updated": 0,
+        "unchanged": 1171,
+        "source_rows": 1171,
+        "reconciled_rows": 1171
+      },
+      "payers": {
+        "inserted": 0,
+        "updated": 0,
+        "unchanged": 10,
+        "source_rows": 10,
+        "reconciled_rows": 10
+      }
+    }
+  },
+  "snowflake_result_transcription_note": "Returned rows omitted the target_total_rows column; it has not been invented in this transcription.",
+  "snowflake_quality_proof_attempt": {
+    "status": "compilation_failed",
+    "user_reported_error": "SQL compilation error: error line 387 at position 4 INTO clause is not allowed in this context",
+    "diagnosis": "Harness generated SELECT (scalar query) INTO without an outer FROM clause.",
+    "correction": "Every assertion now uses SELECT check_value INTO :failures FROM a one-row derived table.",
+    "corrected_script_live_execution": "passed; see snowflake_quality_proof"
+  },
+  "snowflake_quality_proof": {
+    "proof_id": "6ac73b61-7de9-4b38-ad9d-e93104d933e4",
+    "evidence": "User-returned final result table from corrected warehouse QA harness",
+    "raw_tables_unchanged": true,
+    "scenarios": {
+      "late_correction": {
+        "status": "passed",
+        "cost_delta_cents": 100,
+        "encounter_id": "0000d0b7-937c-498a-9da4-32a5d29dee39",
+        "inserted_encounters": 0,
+        "updated_encounters": 1
+      },
+      "recovery": {
+        "status": "passed",
+        "original_content_restored": true,
+        "updated_encounters": 1
+      },
+      "orphan_rejection": {
+        "status": "passed",
+        "all_target_values_preserved": true,
+        "expected_error_code": -20002
+      },
+      "transaction_rollback": {
+        "status": "passed",
+        "all_target_values_preserved": true,
+        "expected_error_code": -20005
+      }
+    },
+    "scope": "Warehouse fault injection in QA using S3 landing and the generated loader; not a corrected PostgreSQL-to-S3 published batch."
+  },
+  "snowflake_preferred_account_identifier": {
+    "account": "pbsfajr-lw57115",
+    "locator": "UJ02641",
+    "region": "AWS_US_EAST_2",
+    "evidence": "User-returned Snowflake account query and successful dbt debug."
+  },
+  "dbt_connection": {
+    "status": "passed",
+    "account": "pbsfajr-lw57115",
+    "user": "HEALTHCARE_DBT_USER",
+    "role": "HEALTHCARE_TRANSFORMER",
+    "schema": "ANALYTICS",
+    "authenticator": "SNOWFLAKE_JWT",
+    "ssl_verification_enabled": true,
+    "user_evidence_path": "evidence\\dbt_20261027T020721_583b7f22\\summary.json"
+  },
+  "dbt_build": {
+    "status": "passed",
+    "model_success": 9,
+    "data_test_pass": 37,
+    "total": 46,
+    "warnings": 0,
+    "errors": 0,
+    "skipped": 0,
+    "tables": {
+      "dim_patient": 1171,
+      "dim_payer": 10,
+      "fct_encounter": 53346
+    },
+    "dbt_core_version": "1.12.6",
+    "adapter_version": "1.12.4",
+    "python_version": "3.12.15",
+    "platform": "Windows",
+    "user_evidence_path": "evidence\\dbt_20261027T020829_3810c9c4\\summary.json",
+    "original_terminal_log": "evidence/cloud_handoff/dbt_build_windows.txt",
+    "original_log_sha256": "8157cff02866a1975b706c712a58db42c5b0870191858a3b57d3d0f221c4761c",
+    "source_library_file_id": "libfile_e56aee6924088191a97239d0dffc59a7"
+  },
+  "reporting_fact_summary": {
+    "evidence": "User-returned direct Snowflake SELECT result",
+    "encounters": 53346,
+    "total_claim_cost_cents": 686831295,
+    "payer_coverage_cents": 330739157,
+    "matches_published_snapshot": true
+  },
+  "reporting_payer_sample": {
+    "evidence": "User-uploaded CSV",
+    "original_name": "main_2026-10-26-2115.csv",
+    "source_library_file_id": "libfile_2f8481fb22388191a7f2a9f4f5c8a813",
+    "rows": 20,
+    "report": "mart_payer_cost_coverage",
+    "independent_source_comparison": "All 20 rows matched names, encounters, distinct patients, integer cents, display amounts and six-decimal ratios."
+  }
+}

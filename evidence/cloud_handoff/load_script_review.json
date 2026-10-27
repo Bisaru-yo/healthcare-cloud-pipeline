@@ -1,0 +1,26 @@
+{
+  "artifact": "sql/03_snowflake_load.sql",
+  "status": "user_verified_initial_load_and_identical_rerun",
+  "local_review": {
+    "existing_python_tests": {
+      "run": 27,
+      "status": "OK"
+    },
+    "csv_column_order_matches_export_contract": true,
+    "pinned_content_identity_matches_reviewed_export": true,
+    "three_merges_with_no_ddl_in_target_transaction": true,
+    "explicit_copy_abort_on_error": true
+  },
+  "snowflake_sql_executed_by_assistant": false,
+  "pending": [
+    "Isolated warehouse correction/recovery, rejection and rollback proof"
+  ],
+  "limitations": [
+    "Static review is not a Snowflake SQL execution.",
+    "SQL records declared file hashes; it does not independently recompute raw file SHA-256."
+  ],
+  "user_verified_run_ids": [
+    "d03f650e-b196-4fa3-96f2-becc5759f96c",
+    "9a852332-9d96-404f-be8b-a78851b1736d"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "SQLite export against the full official sample; PostgreSQL export and actual AWS upload still pending",
+  "row_counts": {
+    "patients": 1171,
+    "payers": 10,
+    "encounters": 53346
+  },
+  "source_counts_match": true,
+  "two_exports_have_identical_payloads": true,
+  "content_sha256": "a75ef822da0e3b6f62708a493f2144b428808ef723bbe51835c9b5a5b617ad9c",
+  "amount_totals_cents": {
+    "total_claim_cost_cents": 686831295,
+    "payer_coverage_cents": 330739157
+  }
+}

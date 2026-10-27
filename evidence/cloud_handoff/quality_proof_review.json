@@ -1,0 +1,16 @@
+{
+  "status": "user_verified_all_four_scenarios",
+  "script": "sql/04_snowflake_quality_proof.sql",
+  "loader_sha256": "c74c149e1d5e19dca6d4f012ce5fc45f580fe523d55a2446d9a4d6e960ad69c8",
+  "local_checks": [
+    "Generator --check matches loader and normalized fixture",
+    "Three merges match verified loader except QA qualification",
+    "No RAW table mutation statements",
+    "Forced rollback raised after merges inside target transaction",
+    "No DDL inside target transaction",
+    "Every harness SELECT INTO assertion has a FROM-backed outer query; generated SQL refreshed and --check passed."
+  ],
+  "snowflake_execution_pending": false,
+  "corrected_assertions": 20,
+  "user_proof_id": "6ac73b61-7de9-4b38-ad9d-e93104d933e4"
+}

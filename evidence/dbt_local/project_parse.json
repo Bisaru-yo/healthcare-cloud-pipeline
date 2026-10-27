@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "command": "dbt parse",
+  "cloud_connection": false,
+  "model_count": 9,
+  "data_test_count": 37,
+  "source_count": 3,
+  "versions": {
+    "dbt-core": "1.12.6",
+    "dbt-snowflake": "1.12.4",
+    "snowflake-connector-python": "4.8.1",
+    "cryptography": "50.0.2",
+    "duckdb": "2.0.0",
+    "sqlglot": "30.25.0"
+  },
+  "python_tests": {
+    "run": 30,
+    "status": "OK"
+  },
+  "pip_check": "No broken requirements found.",
+  "pending": "Actual user Snowflake dbt debug and build"
+}

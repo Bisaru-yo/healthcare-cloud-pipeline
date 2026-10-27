@@ -1,0 +1,19 @@
+version: 2
+sources:
+  - name: healthcare_raw
+    database: HEALTHCARE
+    schema: RAW
+    description: "Validated Synthea snapshot loaded from the complete S3 batch; historical synthetic data."
+    tables:
+      - name: patients
+        columns:
+          - name: id
+            data_tests: [not_null, unique]
+      - name: payers
+        columns:
+          - name: id
+            data_tests: [not_null, unique]
+      - name: encounters
+        columns:
+          - name: id
+            data_tests: [not_null, unique]

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "batch_id": "reviewed_export_1",
+  "status": "complete",
+  "source_engine": "sqlite",
+  "extraction_mode": "full_snapshot",
+  "started_at": "2026-10-26T23:49:48.272665+00:00",
+  "tables": {
+    "patients": {
+      "file": "patients.csv",
+      "columns": [
+        "id",
+        "birthdate",
+        "deathdate",
+        "gender",
+        "city",
+        "state",
+        "row_hash"
+      ],
+      "row_count": 1171,
+      "bytes": 164769,
+      "sha256": "672ef484512130a29eada8b53140a44b34d61873e0b101895aca56b054495fdf",
+      "amount_totals_cents": {}
+    },
+    "payers": {
+      "file": "payers.csv",
+      "columns": [
+        "id",
+        "name",
+        "ownership",
+        "row_hash"
+      ],
+      "row_count": 10,
+      "bytes": 1175,
+      "sha256": "eac938681d5b1b27c8682b0f150bb7d3b9233339dfa256c35aa164b2f481aea4",
+      "amount_totals_cents": {}
+    },
+    "encounters": {
+      "file": "encounters.csv",
+      "columns": [
+        "id",
+        "start",
+        "stop",
+        "patient",
+        "payer",
+        "encounterclass",
+        "code",
+        "total_claim_cost_cents",
+        "payer_coverage_cents",
+        "row_hash"
+      ],
+      "row_count": 53346,
+      "bytes": 13796039,
+      "sha256": "99bcdb42e57986f71fd9d2ccf087f64828298e8c69e8c4e54085f836c5062570",
+      "amount_totals_cents": {
+        "total_claim_cost_cents": 686831295,
+        "payer_coverage_cents": 330739157
+      }
+    }
+  },
+  "content_sha256": "a75ef822da0e3b6f62708a493f2144b428808ef723bbe51835c9b5a5b617ad9c",
+  "finished_at": "2026-10-26T23:49:48.866607+00:00"
+}

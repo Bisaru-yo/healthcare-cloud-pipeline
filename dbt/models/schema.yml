@@ -1,0 +1,59 @@
+version: 2
+models:
+  - name: dim_patient
+    description: "One current row per synthetic patient UUID; type 1 dimension."
+    columns:
+      - name: patient_id
+        data_tests: [not_null, unique]
+      - name: birthdate
+        data_tests: [not_null]
+      - name: gender
+        data_tests: [not_null]
+  - name: dim_payer
+    description: "One current row per payer UUID; names are display labels."
+    columns:
+      - name: payer_id
+        data_tests: [not_null, unique]
+      - name: payer_name
+        data_tests: [not_null]
+  - name: fct_encounter
+    description: "One row per synthetic encounter UUID with UTC dates and exact integer cents."
+    columns:
+      - name: encounter_id
+        data_tests: [not_null, unique]
+      - name: patient_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_patient')
+                field: patient_id
+      - name: payer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_payer')
+                field: payer_id
+      - name: start_at
+        data_tests: [not_null]
+      - name: encounter_month
+        data_tests: [not_null]
+      - name: encounter_class
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["ambulatory", "emergency", "inpatient", "outpatient", "urgentcare", "wellness"]
+      - name: total_claim_cost_cents
+        data_tests: [not_null, nonnegative]
+      - name: payer_coverage_cents
+        data_tests: [not_null, nonnegative]
+      - name: row_hash
+        data_tests: [not_null]
+  - name: mart_monthly_utilization
+    description: "UTC month x encounter class x payer UUID; distinct patients are non-additive."
+  - name: mart_encounter_class_mix
+    description: "UTC month x encounter class; encounter_share is a fraction from 0 to 1."
+  - name: mart_payer_cost_coverage
+    description: "UTC month x payer UUID; synthetic cost and payer coverage, not revenue."

@@ -1,0 +1,2 @@
+# Install only for milestone 2; the local proof uses Python's standard library.
+psycopg[binary]>=3.2,<4

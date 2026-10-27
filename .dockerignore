@@ -1,0 +1,6 @@
+*
+!requirements-dbt.txt
+!requirements-postgres.txt
+!requirements-aws.txt
+!airflow/
+!airflow/Dockerfile

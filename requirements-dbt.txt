@@ -1,0 +1,4 @@
+# Python 3.12; dbt Core adapter versions verified against PyPI.
+dbt-core==1.12.6
+dbt-snowflake==1.12.4
+cryptography==50.0.2
