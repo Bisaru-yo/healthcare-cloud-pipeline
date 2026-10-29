@@ -1,4 +1,4 @@
-# Healthcare Data Pipeline & Automated Quality Validation
+# Healthcare Data Pipeline & Quality Validation
 
 A healthcare data engineering portfolio project by **Bishal Sunchury**. It turns a historical Synthea snapshot into validated encounter analytics, with repeatable batch loads, explicit failure checks, and an Airflow workflow connecting PostgreSQL, AWS S3, Snowflake, and dbt.
 
